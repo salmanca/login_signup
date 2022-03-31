@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+
+{%block title%}
+log in
+{%endblock%}
+
+{%block contents%}
+<div class='container mt-5 pt-5'>
+<div class='row justify-content-center'>
+<div class='col-lg-4 shadow shadow-lg'>
+    <form action='' method='post' class='m-5'>
+        {% csrf_token %}
+        <div class="mb-3">
+            <div class='container text-center'><h3 class='h3 my-4'>LOGIN</h3></div>
+            {%if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                 </div>
+            {%endfor%}
+            {%endif%}
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" placeholder='Username' aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" placeholder='password'>
+        </div>
+        <div class='container text-center'><button type="submit" class="btn btn-primary my-3">LOG IN</button></div>
+        
+    </form>
+</div>
+</div>
+</div>
+
+{%endblock%}
